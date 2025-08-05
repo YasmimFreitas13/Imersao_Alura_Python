@@ -80,3 +80,4 @@ bloco("Remoto", df['remoto'].value_counts())
 bloco("Tamanho da empresa", df['tamanho_empresa'].value_counts())
 
 
+
