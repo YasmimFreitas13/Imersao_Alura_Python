@@ -64,8 +64,8 @@ O objetivo é criar um **dashboard interativo** para análise de dados salariais
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-
-***No macOS/Linux:***
+   
+ - No macOS/Linux:***
     ```bash
    python3 -m venv venv
    source venv/bin/activate
