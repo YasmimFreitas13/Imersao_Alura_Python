@@ -34,11 +34,11 @@ O objetivo é criar um **dashboard interativo** para análise de dados salariais
 
 ## 🛠 Tecnologias Utilizadas
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="24" height="24" /> **Python**  
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" width="24" height="24" /> **Pandas**  
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/plotly/plotly-original.svg" alt="Plotly" width="24" height="24" /> **Plotly**  
-- <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Streamlit_logo.svg" alt="Streamlit" width="24" height="24" /> **Streamlit**  
-- <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/ISO_Country_Codes.svg" alt="PyCountry" width="24" height="24" /> **PyCountry**
+- **Python**
+- **Pandas**
+- **Plotly**
+- **Streamlit**
+- **PyCountry**
 
 ---
 
@@ -49,22 +49,29 @@ O objetivo é criar um **dashboard interativo** para análise de dados salariais
    git clone https://github.com/YasmimFreitas13/Imersao_Alura_Python.git
 
 2. **Entre na pasta do projeto**
-cd Imersao_Alura_Python
+    ```bash
+   cd Imersao_Alura_Python
 
 3. **Crie e ative um ambiente virtual (opcional, mas recomendado)**
 
 **No Windows:**
-bash
-python -m venv venv
-.\venv\Scripts\activate
+    ```bash
+   python -m venv venv
+   .\venv\Scripts\activate
 
 **No macOS/Linux:**
-bash
-python3 -m venv venv
-source venv/bin/activate
+    ```bash
+   python3 -m venv venv
+   source venv/bin/activate
 
 4. **Instale as dependências**
-pip install -r requirements.txt
+    ```bash
+   pip install -r requirements.txt
 
 5. **Execute o dashboard com Streamlit**
-Execute o dashboard com Streamlit
+     ```bash
+    Execute o dashboard com Streamlit
+
+## 🤝 Contribuições e Licença
+
+Sinta-se à vontade para personalizar o conteúdo conforme necessário, adicionando informações específicas sobre seu projeto ou detalhes que você considere importantes. Se precisar de mais alguma coisa, estou aqui para ajudar!
