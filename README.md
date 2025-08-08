@@ -39,6 +39,7 @@ O objetivo é criar um **dashboard interativo** para análise de dados salariais
 - **Plotly**
 - **Streamlit**
 - **PyCountry**
+- **VS Code**
 
 ---
 
@@ -54,10 +55,15 @@ O objetivo é criar um **dashboard interativo** para análise de dados salariais
 
 3. **Crie e ative um ambiente virtual (opcional, mas recomendado)**
 
-***No Windows:***
-    ```bash
-   python -m venv venv
-   .\venv\Scripts\activate
+- No Windows:  
+  ```bash
+  python -m venv venv
+  .\venv\Scripts\activate
+
+ - No macOS/Linux:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
 
 ***No macOS/Linux:***
     ```bash
