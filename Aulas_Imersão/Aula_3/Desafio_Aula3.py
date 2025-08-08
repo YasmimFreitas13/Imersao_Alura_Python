@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+import pycountry
 
 # Função de impressão formatada
 def bloco(titulo, conteudo=None):
@@ -18,7 +19,7 @@ novos_nomes = {
     'job_title': 'cargo',
     'salary': 'salario',
     'salary_currency': 'moeda',
-    'salary_in_usd': 'usd',
+    'salary_in_usd': 'usd',  # <- aqui o nome será 'usd'
     'employee_residence': 'residencia',
     'remote_ratio': 'remoto',
     'company_location': 'empresa',
@@ -28,22 +29,31 @@ novos_nomes = {
 # Renomeia as colunas
 df.rename(columns=novos_nomes, inplace=True)
 
-# Filtra apenas para o cargo "Data Science"
-df_ds = df[df['cargo'] == 'Data Science']
+# Cria um DataFrame limpo para manipulação
+df_limpo = df.copy()
 
-# Calcula o salário médio por país
-salario_pais = df_ds.groupby('residencia', as_index=False)['usd'].mean()
+# Função para converter ISO-2 para ISO-3
+def iso2_to_iso3(code):
+    try:
+        return pycountry.countries.get(alpha_2=code).alpha_3
+    except:
+        return None
 
-# Cria o mapa interativo
+# Criar nova coluna com código ISO-3
+df_limpo['residencia_iso3'] = df_limpo['residencia'].apply(iso2_to_iso3)
+
+# Calcular média salarial por país (apenas Data Scientist)
+ds = df_limpo[df_limpo['cargo'] == 'Data Scientist']
+media_ds_pais = ds.groupby('residencia_iso3')['usd'].mean().reset_index()
+
+# Gerar o mapa
 fig = px.choropleth(
-    salario_pais,
-    locations='residencia',        # Coluna com código do país
-    locationmode='ISO-3',          # ISO Alpha-3 (ex.: BRA, USA)
-    color='usd',                   # Cor baseada no salário médio
-    hover_name='residencia',       # Mostra o país ao passar o mouse
-    color_continuous_scale='Viridis',
-    title='Salário Médio por País - Data Science (USD)'
+    media_ds_pais,
+    locations='residencia_iso3',
+    color='usd',
+    color_continuous_scale='rdylgn',
+    title='Salário médio de Cientista de Dados por país',
+    labels={'usd': 'Salário médio (USD)', 'residencia_iso3': 'País'}
 )
 
-# Exibe o mapa
 fig.show()
